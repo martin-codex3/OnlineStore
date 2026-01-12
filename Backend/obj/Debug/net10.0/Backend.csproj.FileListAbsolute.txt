@@ -26,3 +26,4 @@
 /home/martinsilungwe/Projects/OnlineStore/Backend/obj/Debug/net10.0/Backend.pdb
 /home/martinsilungwe/Projects/OnlineStore/Backend/obj/Debug/net10.0/Backend.genruntimeconfig.cache
 /home/martinsilungwe/Projects/OnlineStore/Backend/obj/Debug/net10.0/ref/Backend.dll
+/home/martinsilungwe/Projects/OnlineStore/Backend/obj/Debug/net10.0/Backend.sourcelink.json

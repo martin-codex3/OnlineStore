@@ -1,7 +1,7 @@
-namespace Backend.dtos;
+namespace Backend.dtos.products;
 
-public record class ProductDto (
-    int ProductId,
+
+public record class CreateProductDto (
     string ProductTitle,
     string ProductDescription,
     string ProductCategory,

@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <Folder Include="dtos/" />
+    <Folder Include="dtos/products/" />
   </ItemGroup>
 
 </Project>
