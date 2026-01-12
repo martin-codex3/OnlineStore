@@ -1,7 +1,13 @@
 using Backend.dtos;
+using Backend.dtos.products;
+using Microsoft.AspNetCore.Http.HttpResults;
+
+
 
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
+
+const string ApiRouteName = "GetProducts";
 
 // the simple list of all games here
 List<ProductDto> products =
@@ -59,7 +65,56 @@ List<ProductDto> products =
 ];
 
 
+// fetching all the products here
+app.MapGet("/products", () => products);
 
-app.MapGet("/", () => "c# one of the best things out there mate");
+// getting a single product here
+// /products/{id}
+app.MapGet("/products/{id}", (int id) => products.Find(product => product.ProductId == id)).WithName(ApiRouteName);
+
+// adding a new product here
+app.MapPost("/products", (CreateProductDto newProduct) =>
+{
+    ProductDto productDto = new(
+        products.Count+1,
+        newProduct.ProductTitle,
+        newProduct.ProductDescription,
+        newProduct.ProductCategory,
+        newProduct.ProductPrice,
+        newProduct.IsComplete,
+        newProduct.CreatedAt,
+        newProduct.UpdatedAt
+    );
+
+    // we have to add the product to the list of products here
+    products.Add(productDto);
+
+    // we have to return something here
+    return Results.CreatedAtRoute(ApiRouteName, new {id = productDto.ProductId}, productDto);
+
+});
+
+// for updating the product here 
+app.MapPut("/products/{id}", (int id, UpdateProductDto updateProductDto) =>
+{
+
+   // we will have to get the product that we want to update first
+   var index = products.FindIndex(product => product.ProductId == id);
+
+   products[index] = new ProductDto(
+    id,
+    updateProductDto.ProductTitle,
+    updateProductDto.ProductDescription,
+    updateProductDto.ProductCategory,
+    updateProductDto.ProductPrice,
+    updateProductDto.IsComplete,
+    updateProductDto.CreatedAt,
+    updateProductDto.UpdatedAt
+   );
+   
+
+});
+
+
 
 app.Run();
