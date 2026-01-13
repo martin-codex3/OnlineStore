@@ -5,7 +5,7 @@ namespace Backend.models.Products;
 
 public class ProductModel
 {
-    public int ProductId {get; set;}
+    public int Id {get; set;}
     public required string ProductTitle { get; set; }
     public required string ProductDescription { get; set; }
     public CategoryModel? Category {get; set;}
