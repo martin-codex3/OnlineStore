@@ -11,6 +11,9 @@
     <Folder Include="dtos/products/" />
     <Folder Include="EndPoints/" />
     <Folder Include="EndPoints/Products/" />
+    <Folder Include="models/" />
+    <Folder Include="models/Categories/" />
+    <Folder Include="models/Products/" />
   </ItemGroup>
 
 </Project>
