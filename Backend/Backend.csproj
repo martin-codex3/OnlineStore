@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Data/" />
     <Folder Include="dtos/" />
     <Folder Include="dtos/products/" />
     <Folder Include="EndPoints/" />
@@ -14,6 +15,10 @@
     <Folder Include="models/" />
     <Folder Include="models/Categories/" />
     <Folder Include="models/Products/" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="10.0.1" />
   </ItemGroup>
 
 </Project>
