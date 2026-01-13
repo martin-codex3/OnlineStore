@@ -18,3 +18,21 @@ Content-Type: application/json
   "CreatedAt": "2026-01-11",
   "UpdatedAt": "2026-01-11"
 }
+
+
+###
+PUT http://localhost:5296/products/2 
+Content-Type: application/json
+
+{
+    "ProductTitle": "This is the second product",
+    "ProductDescription": "A detailed description of the second product",
+    "ProductCategory": "Electronics",
+    "ProductPrice": 499.99,
+    "IsComplete": true,
+    "CreatedAt": "2026-01-11",
+    "UpdatedAt": "2026-01-11"
+}
+
+###
+DELETE http://localhost:5296/products/1 
