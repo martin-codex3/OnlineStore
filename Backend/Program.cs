@@ -6,6 +6,10 @@ using Microsoft.AspNetCore.Http.HttpResults;
 
 
 var builder = WebApplication.CreateBuilder(args);
+
+// we will add the validation service here
+builder.Services.AddValidation();
+
 var app = builder.Build();
 
 

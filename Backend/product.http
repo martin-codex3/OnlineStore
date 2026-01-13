@@ -10,7 +10,7 @@ POST http://localhost:5296/products
 Content-Type: application/json
 
 {
-  "ProductTitle": "This is the second product",
+  "ProductTitle": 98,
   "ProductDescription": "A detailed description of the second product",
   "ProductCategory": "Electronics",
   "ProductPrice": 499.99,

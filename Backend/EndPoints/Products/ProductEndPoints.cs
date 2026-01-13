@@ -64,11 +64,12 @@ public static class ProductEndPoints
     public static void AllProductEndPoints(this WebApplication app)
     {
         const string ApiRouteName = "GetProducts";
+        var group = app.MapGroup("/products"); // this will group all the routes 
 
         // fetching all the products here
-        app.MapGet("/products", () => products);
+        group.MapGet("/", () => products);
 
-        app.MapGet("/products/{id}", (int id) =>
+        group.MapGet("/{id}", (int id) =>
         {
             var product = products.Find(product => product.ProductId == id);
 
@@ -83,7 +84,7 @@ public static class ProductEndPoints
         }).WithName(ApiRouteName);
 
         // adding a new product here
-        app.MapPost("/products", (CreateProductDto newProduct) =>
+        group.MapPost("/", (CreateProductDto newProduct) =>
         {
             ProductDto productDto = new(
                 products.Count+1,
@@ -105,7 +106,7 @@ public static class ProductEndPoints
         });
 
         // for updating the product here 
-        app.MapPut("/products/{id}", (int id, UpdateProductDto updateProductDto) =>
+        group.MapPut("/{id}", (int id, UpdateProductDto updateProductDto) =>
         {
 
         // we will have to get the product that we want to update first
@@ -133,7 +134,7 @@ public static class ProductEndPoints
         });
 
 
-        app.MapDelete("/products/{id}", (int id) =>
+        group.MapDelete("/{id}", (int id) =>
         {
             // we will attempt to delete the product here
             products.RemoveAll(product => product.ProductId == id);
