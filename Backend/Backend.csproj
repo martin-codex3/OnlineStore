@@ -9,6 +9,8 @@
   <ItemGroup>
     <Folder Include="dtos/" />
     <Folder Include="dtos/products/" />
+    <Folder Include="EndPoints/" />
+    <Folder Include="EndPoints/Products/" />
   </ItemGroup>
 
 </Project>
